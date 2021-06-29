@@ -20,3 +20,59 @@
  * License:           GPL v2 or later
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  */
+
+defined( 'ABSPATH' ) || exit;
+
+
+// ============= START HERE =============
+// Ready? Go!
+// 
+
+// LOOK AT ENQUIING STYLES
+
+// Include the functions.php file
+require_once('functions.php');
+
+
+// Display the Calculator on Custom Event
+add_action( 'the_content', 'initCalculator' );
+
+
+// Initialise the Calculator
+function initCalculator(){
+    require_once('templates/calculator.php');
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  ACTIVE PLUGIN
+register_activation_hook( __FILE__, 'financecalc_activation_function' );
+
+function financecalc_activation_function(){
+    // CODE FOR PLUGIN ACTIVATION
+
+
+
+
+}
+
+// DEACTIVATE PLUGIN
+register_deactivation_hook( __FILE__, 'financecalc_dectivation_function' );
+
+function financecalc_deactivation_function(){
+    // CODE FOR PLUGIN DEACTIVATION
+
+
+
+
+}
