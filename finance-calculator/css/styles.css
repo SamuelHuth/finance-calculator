@@ -1,7 +1,52 @@
-/* ====================================
+/* ============================================================================================================
     STYLES FOR FINANCE CALCULATOR
+    ============================================================================================================
 */
 
-*{
-    background: red;
+/* ============================================================================================================
+    The Calculator Container
+*/
+#finance-calculator.calculator-container{
+    background-color: #fff;
+    border: 2px solid #fff;
+
+}
+
+/* ============================================================================================================
+    The Calculator Tabs
+*/
+#finance-calculator.calculator-container .calculator-tabs{
+    background: #ddd;
+    padding: 10px;
+    display: flex;
+    flex-direction: row wrap;
+}
+#finance-calculator.calculator-container .calculator-tabs .calculator-tabs-button{
+    background: #ccc;
+    color: #000;
+}
+#finance-calculator.calculator-container .calculator-tabs .calculator-tabs-button.active{
+    background: #bbb;
+}
+/* ============================================================================================================
+    The Calculator Content
+*/
+#finance-calculator.calculator-container .calculator-content{
+    background: #eee;
+    padding: 10px;
+
+}
+#finance-calculator.calculator-container .calculator-content .calculator-content-tab{
+    display: none;
+}
+#finance-calculator.calculator-container .calculator-content .calculator-content-tab.active{
+    display: block;
+    width: 100%;
+}
+
+#finance-calculator.calculator-container .calculator-content .calculator-content-tab .form-field{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
 }

@@ -28,19 +28,35 @@ defined( 'ABSPATH' ) || exit;
 // Ready? Go!
 // 
 
-// LOOK AT ENQUIING STYLES
+// Define variable paths for the plugin
+define('FINANCE_CALCULATOR_LOCATION', dirname(__FILE__));
+define('FINANCE_CALCULATOR_LOCATION_URL', plugins_url(__FILE__));
 
-// Include the functions.php file
-require_once('functions.php');
 
 
-// Display the Calculator on Custom Event
-add_action( 'the_content', 'initCalculator' );
+// Define Shortcode
+add_shortcode('financecalculator', 'initCalculator');
 
 
 // Initialise the Calculator
 function initCalculator(){
+
+    // Disbale the admin bar
+    add_filter('show_admin_bar', '__return_false');
+
+
+    // ADD STYLES AND SCRIPTS
+    wp_enqueue_style('finance-calculator', plugins_url("/css/styles.css", __FILE__));
+    wp_enqueue_script('finance-calculator', plugins_url("/js/scripts.js", __FILE__));
+
+    
+    // Include the functions.php file
+    require_once('functions.php');
+
+    // Display the Calculator
     require_once('templates/calculator.php');
+
+    return $financialCalculatorOutput;
 }
 
 
@@ -60,7 +76,10 @@ register_activation_hook( __FILE__, 'financecalc_activation_function' );
 
 function financecalc_activation_function(){
     // CODE FOR PLUGIN ACTIVATION
-
+    //
+    // Start up a DB
+    //
+    //
 
 
 
@@ -72,7 +91,7 @@ register_deactivation_hook( __FILE__, 'financecalc_dectivation_function' );
 function financecalc_deactivation_function(){
     // CODE FOR PLUGIN DEACTIVATION
 
-
+    // Do something??
 
 
 }
